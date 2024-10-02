@@ -123,5 +123,5 @@ def generate_index_html(total_dialogs, group_size=20):
 
 # 示例用法
 if __name__ == "__main__":
-    # generate_html_for_all_items()
-    generate_index_html(150)
+    generate_html_for_all_items()
+    # generate_index_html(150)
