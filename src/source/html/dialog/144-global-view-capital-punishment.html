@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>144 -- Global View - Capital Punishment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .chat-container {
+            background-color: white;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .chat-header {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        .main-title {
+            font-size: 28px;
+            font-weight: bold;
+            margin: 0 0 10px 0;
+        }
+        .subtitle {
+            font-size: 14px;
+            color: #666;
+        }
+        .social-icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 16px;
+            height: 16px;
+            margin-left: 5px;
+            vertical-align: middle;
+            color: #007bff; /* 设置默认颜色为蓝色 */
+        }
+        .social-icon:hover {
+            color: #0056b3; /* 鼠标悬停时改变颜色为深蓝色 */
+        }
+        .dialogue {
+            display: flex;
+            margin-bottom: 20px;
+            align-items: flex-start;
+        }
+        .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            color: #fff;
+            margin-right: 10px;
+        }
+        .message {
+            max-width: 70%;
+            padding: 5px 15px;
+            border-radius: 18px;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .timestamp {
+            font-size: 12px;
+            color: #999;
+            margin-top: 5px;
+            text-align: right;
+        }
+        .a-speech .avatar {
+            background-color: #007bff;
+        }
+        .b-speech {
+            flex-direction: row-reverse;
+        }
+        .b-speech .avatar {
+            background-color: #28a745;
+            margin-right: 0;
+            margin-left: 10px;
+        }
+        .b-speech .message {
+            background-color: #dcf8c6;
+        }
+        .chat-header a {
+            color: #007bff;  /* 使用蓝色作为默认链接颜色 */
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .chat-header a:hover {
+            color: #0056b3;  /* 鼠标悬停时使用深蓝色 */
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1 class="main-title"><a href="/dialog/144-global-view-capital-punishment.html">144 -- Global View - Capital Punishment</a></h1>
+            <div class="subtitle">
+                作者: <a href="https://bruceyuan.com/">「用代码打点酱油」</a> <a href="https://www.youtube.com/@bbruceyuan" target="_blank" rel="noopener noreferrer" class="social-icon">
+                    <svg viewBox="0 0 24 24" width="16" height="16">
+                        <path fill="currentColor" d="M23.5 6.2c-.3-1.1-1.1-1.9-2.2-2.2C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.3.5c-1.1.3-1.9 1.1-2.2 2.2C0 8 0 12 0 12s0 4 .5 5.8c.3 1.1 1.1 1.9 2.2 2.2 1.8.5 9.3.5 9.3.5s7.5 0 9.3-.5c1.1-.3 1.9-1.1 2.2-2.2.5-1.8.5-5.8.5-5.8s0-4-.5-5.8zM9.5 15.5v-7l6 3.5-6 3.5z"/>
+                    </svg>
+                </a>
+                <a href="https://space.bilibili.com/12420432" target="_blank" rel="noopener noreferrer" class="social-icon">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor" d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/>
+                        </svg>
+                    </a>
+                &nbsp;
+                播客: <a href="https://www.xiaoyuzhoufm.com/podcast/6651cf584efbc0c3dcfb00d7">「EnglishPod-听播客学英语」</a>
+                &nbsp;
+                微信公众号: 「打点酱油」
+            </div>
+        </div>
+        
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>Do you think we should be tougher on crime?</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>Well, it depends on what you mean.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>For example, we could bring back the death penalty for murder, give longer prison sentences for lesser offences and lock up juvenile offenders.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>Those really sound like Draconian measures. Firstly, what do you do about miscarriages of justice if you’ve already put innocent people to death?</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>You’d only use capital punishment if you were ab- solutely sure that you’d convicted the right person.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>But, there’ve been many cases of wrongful con- viction where people have been imprisoned for many years. The authorities were sure at the time, but later it was shown that the evidence was unreliable. In some cases, it’d been fabricated by the police.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>Well, no system of justice can be perfect, but surely there’s a good case for longer prison sen- tences to deter serious crime.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>I doubt whether they could act as an effective de- terrent while the detection rate is so low. The best way to prevent crime is to convince people who commit it that they’re going to be caught. It doesn’t make sense to divert all your resources into the prison system.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>But if you detect more crimes, you’ll still need pris- ons. In my reckoning, if we could lock up more juvenile criminals, they’d learn that they couldn’t get away with it. Soft sentences will merely en- courage them to do it again.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>Yes, but remember that prisons are often schools for criminals. To remove crime from society, you really have to tackle its causes.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>Well, if I were president, I would impose tougher laws and punishment. I would have a peaceful so- ciety based on fear of punishment, not conscious- ness of doing the right thing.</p>
+            </div>
+        </div>
+        
+        <div class="dialogue b-speech">
+            <div class="avatar">b</div>
+            <div class="message">
+                <p>You sound like a dictator!</p>
+            </div>
+        </div>
+        
+        <div class="dialogue a-speech">
+            <div class="avatar">a</div>
+            <div class="message">
+                <p>Well if it works, why not?</p>
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>
