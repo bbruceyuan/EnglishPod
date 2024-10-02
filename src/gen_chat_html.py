@@ -1,6 +1,7 @@
 from jinja2 import Environment, FileSystemLoader
 import os
 import json
+import math
 
 
 def generate_html(title, dialogues, output_file, current_page_url):
@@ -78,6 +79,49 @@ def test():
     print(f"HTML file generated: {output_file}")
 
 
+def generate_index_html(total_dialogs, group_size=20):
+    # Create Jinja2 environment
+    env = Environment(loader=FileSystemLoader('.'))
+    template = env.get_template('./index_template.html')
+
+    # Read the JSON file to get dialog information
+    with open('info.json', 'r', encoding='utf-8') as f:
+        items = json.load(f)
+
+    # Calculate number of groups
+    num_groups = math.ceil(total_dialogs / group_size)
+
+    # Generate dialog groups with URLs and titles
+    dialog_groups = []
+    for i in range(num_groups):
+        start = i * group_size
+        end = min((i + 1) * group_size, total_dialogs)
+        dialogs = []
+        for item in items[start:end]:
+            number = item['number']
+            name = item['name']
+            url_slug = '-'.join(name.replace('-', ' ').split()).lower()
+            dialog_url = f"/dialog/{number}-{url_slug}.html"
+            dialog_title = f"{number} -- {name}"
+            dialogs.append({
+                'number': number,
+                'url': dialog_url,
+                'title': dialog_title
+            })
+        dialog_groups.append({
+            'start': start + 1,
+            'end': end,
+            'dialogs': dialogs
+        })
+
+    # Render the template
+    output = template.render(dialog_groups=dialog_groups)
+
+    # Write the output to a file
+    with open('./source/html/index.html', 'w', encoding='utf-8') as f:
+        f.write(output)
+
 # 示例用法
 if __name__ == "__main__":
-    generate_html_for_all_items()
+    # generate_html_for_all_items()
+    generate_index_html(150)
